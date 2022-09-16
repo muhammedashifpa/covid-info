@@ -1,56 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
 import './App.css';
+import Layout from './components/layout/Layout';
+import Dashbord from './components/dashbord/Dashbord';
+import { AxiosInstance } from './axios/axios';
+
 
 function App() {
+    useEffect(()=>{
+      // AxiosInstance.get('live/country/south-africa/status/confirmed/from=2021-03-01T00:00:00Z&to=2022-04-01T00:00:00Z').then(res=>console.log(res))
+      AxiosInstance.get('live/country/south-africa/status/confirmed').then(res=>console.log(res))
+    })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Layout title='Covid-19 Live'>
+        <Dashbord/>
+      </Layout>
     </div>
   );
 }
