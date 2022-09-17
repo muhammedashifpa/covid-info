@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components';
 import { DataStateInterface } from '../../../features/covidData/covidDataSlice';
 import Loading from '../../ui/Loading'
 
@@ -16,13 +17,29 @@ const RenderByStatus = ({status,element}:Props) => {
         case 'succeeded':
             return <>{element}</>
         case 'failed':
-            return <MessageElement message='Something went wrong try again.'/>
+            return <MessageElement message='404 Something went wrong try again.'/>
         default:
             return <div/>
     }
 }
 
-export default React.memo(RenderByStatus)
+export default React.memo(RenderByStatus);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 interface MessageType{
     message:string
@@ -30,6 +47,12 @@ interface MessageType{
 
 const MessageElement = ({message}:MessageType) => {
     return(
-        <h2>{message}</h2>
+        <MessageElmentWrapper>{message}</MessageElmentWrapper>
     )
 }
+
+const MessageElmentWrapper = styled.h2`
+    text-align: center ;
+        
+    
+`

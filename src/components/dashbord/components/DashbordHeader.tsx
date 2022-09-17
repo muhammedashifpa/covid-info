@@ -1,21 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAppDispatch } from '../../../app/hooks'
-import { fetchDataCountryAsync } from '../../../features/covidData/covidDataSlice'
+import { graphNameInterface } from '../Dashbord';
 
-type Props = {}
+type Props = {
+  graphChangeHandler:(value:graphNameInterface['graphName'])=>void;
+  options:{
+    name:string,
+    value:graphNameInterface['graphName']
+  }[],
+  currentGraphName:string
+}
 
-const DashbordHeader = (props: Props) => {
-  const dispatch = useAppDispatch()
+const DashbordHeader = ({graphChangeHandler,options,currentGraphName}: Props) => {
+
+  const changehandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = (e.target as HTMLSelectElement).value 
+    graphChangeHandler(value)
+  }
   return (
     <DashbordHeaderWrapper>
-        <button onClick={()=>dispatch(fetchDataCountryAsync())}>get data of country</button>
+      <select name="graphSelector" id="graphSelector"  onChange={changehandler}>
+        {options&&options.map((item,index)=>{
+          return(
+            <option key={index} value={item.value}>{item.name}</option>
+          )
+        })}
+      </select>
     </DashbordHeaderWrapper>
   )
 }
 
-export default DashbordHeader
+export default React.memo(DashbordHeader)
 
 const DashbordHeaderWrapper = styled.div`
-    margin-bottom: 2rem;
+    padding: 2rem 0;
+    select{
+      padding: 1rem;
+      option{
+        padding: 1rem;
+      }
+    }
 `

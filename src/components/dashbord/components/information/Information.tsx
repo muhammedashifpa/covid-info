@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { CovidDataInterface } from '../../../../features/covidData/apiManager'
 import InformationItem from './InformationItem'
 
+
 type Props = {
     data:CovidDataInterface
 }
@@ -51,7 +52,7 @@ const Information = ({data}: Props) => {
             <div className="col-6">
                 <InformationItem
                    title='Active'
-                   value={data.TotalConfirmed - data.TotalRecovered - data.TotalDeaths}
+                   value={data.TotalConfirmed - (data.TotalRecovered + data.TotalDeaths)}
                    />
             </div>
             <div className="col-6">

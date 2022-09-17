@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAppSelector } from '../../../app/hooks'
-import { selectCovidData } from '../../../features/covidData/covidDataSlice'
 
 type Props = {
   title:string
 }
 
 const Header = (props: Props) => {
-  const covidData = useAppSelector(selectCovidData)
   return (
     <>
       <HeaderWrapper>
@@ -18,8 +15,7 @@ const Header = (props: Props) => {
             <div className='live-indicator'/>
           </LeftHeader>
           <RightHeader>
-            {covidData.status}
-            </RightHeader>
+          </RightHeader>
         </StyledContainer>
       </HeaderWrapper>
       <HeaderSupport/>

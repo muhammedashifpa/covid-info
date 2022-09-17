@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from './footer/Footer'
 import Header from './header/Header'
 
 interface Props {
@@ -12,7 +11,6 @@ const Layout : React.FC<Props> = ({children,title}) => {
     <>
       <Header title={title}/>
         {children}
-      <Footer/>
     </>
   )
 }
