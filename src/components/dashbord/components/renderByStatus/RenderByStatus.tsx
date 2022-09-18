@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import { DataStateInterface } from '../../../features/covidData/covidDataSlice';
-import Loading from '../../ui/Loading'
+import { DataStateInterface } from '../../../../features/covidData/covidDataSlice';
+import Loading from '../../../ui/Loading'
 
 type Props = {
     status:DataStateInterface['status']

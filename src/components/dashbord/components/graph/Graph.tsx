@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { graphDataInterface } from '../Dashbord';
+import { graphDataInterface } from '../../Dashbord';
 import styled from 'styled-components';
 
 ChartJS.register(

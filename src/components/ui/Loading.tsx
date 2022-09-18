@@ -6,7 +6,7 @@ type Props = {}
 const Loading = (props: Props) => {
   return (
     <LoadingWrapper>
-        <div className='loading-spinner'/>
+        <div data-testid='loading-spinner' className='loading-spinner'/>
     </LoadingWrapper>
   )
 }

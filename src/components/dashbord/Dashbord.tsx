@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {  fetchDataWIPAsync, selectCovidData } from '../../features/covidData/covidDataSlice';
 import DashbordHeader from './components/DashbordHeader';
-import Graph from './components/Graph';
+import Graph from './components/graph/Graph';
 import Information from './components/information/Information';
-import RenderByStatus from './components/RenderByStatus';
+import RenderByStatus from './components/renderByStatus/RenderByStatus';
 
 export interface graphDataInterface{
   date:string[],

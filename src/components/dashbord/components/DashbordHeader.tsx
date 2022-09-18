@@ -19,7 +19,7 @@ const DashbordHeader = ({graphChangeHandler,options,currentGraphName}: Props) =>
   }
   return (
     <DashbordHeaderWrapper>
-      <select name="graphSelector" id="graphSelector"  onChange={changehandler}>
+      <select name="graphSelector" id="graphSelector" data-testid="graphSelector  " onChange={changehandler}>
         {options&&options.map((item,index)=>{
           return(
             <option key={index} value={item.value}>{item.name}</option>
