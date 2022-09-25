@@ -48,6 +48,7 @@ const Dashbord = () => {
         color2:'',
       }
     }
+    
     if(covidData.status === 'succeeded'){
       switch(graphName.graphName){
         case 'cases':

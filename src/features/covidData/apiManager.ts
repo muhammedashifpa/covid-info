@@ -14,7 +14,13 @@ export interface CovidDataInterface{
 
 
 export const fetchWorldWIP = () => {
-    var datetime;
-    datetime = '2022-08-01T00:00:00Z&to=2022-09-01T00:00:00Z';
-    return AxiosInstance.get<CovidDataInterface[]>(`world?from=${datetime}`)
+    const makeDate = new Date();
+    makeDate.setHours(0,0,0,0)
+    const toDate = makeDate.toISOString()
+
+    const fromDate = new Date(makeDate.setMonth(makeDate.getMonth() - 1)).toISOString()
+
+    const changeDdateTime = `${fromDate}&to=${toDate}`;
+
+    return AxiosInstance.get<CovidDataInterface[]>(`world?from=${changeDdateTime}`)
 }
